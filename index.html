@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="favicon.jpg" type="image/x-icon" />
+
+        <title>Mint Development Environment</title>
+
+        <style>
+            :root {
+                --bg: #0f172a;
+                --bg-box: #6276a3;
+                --card: #111827;
+                --text: #e5e7eb;
+                --muted: #9ca3af;
+                --border: #1f2937;
+                --accent: #22c55e;
+                --code: #020617;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            .box {
+                background-color: var(--bg-box);
+                border-radius: 12px;
+                border: 1px solid white;
+                padding: 0rem 2.25rem;
+            }
+
+            body {
+                margin: 0;
+                font-family:
+                    system-ui,
+                    -apple-system,
+                    Segoe UI,
+                    Roboto,
+                    Ubuntu,
+                    Cantarell,
+                    sans-serif;
+                background: var(--bg);
+                color: var(--text);
+                line-height: 1.65;
+            }
+
+            .container {
+                max-width: 900px;
+                margin: auto;
+                padding: 40px 24px 80px;
+            }
+
+            img {
+                width: 100%;
+            }
+
+            h1 {
+                font-size: 2rem;
+                border-bottom: 1px solid var(--border);
+                padding-bottom: 0.4em;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+                border-bottom: 1px solid var(--border);
+                padding-bottom: 0.3em;
+            }
+
+            h3 {
+                font-size: 1.3rem;
+            }
+
+            p {
+                margin: 1em 0;
+            }
+
+            ul {
+                padding-left: 1.4em;
+            }
+
+            li {
+                margin: 0.35em 0;
+            }
+
+            strong {
+                color: white;
+            }
+
+            a {
+                color: var(--accent);
+                text-decoration: none;
+            }
+
+            a:hover {
+                text-decoration: underline;
+            }
+
+            code {
+                background: var(--code);
+                padding: 3px 6px;
+                border-radius: 5px;
+                font-family: "JetBrains Mono", monospace;
+                font-size: 0.9em;
+            }
+
+            pre {
+                background: var(--code);
+                padding: 14px;
+                border-radius: 8px;
+                overflow-x: auto;
+                border: 1px solid var(--border);
+            }
+
+            pre code {
+                background: none;
+                padding: 0;
+            }
+
+            pre.inline {
+                display: inline;
+                padding: 4px;
+            }
+
+            footer {
+                margin-top: 80px;
+                padding-top: 30px;
+                border-top: 1px solid var(--border);
+                color: var(--muted);
+                font-size: 0.9rem;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <img src="mint.svg" alt="Logo Linux Mint" />
+
+            <div class="box">
+                <h1>Resumão: dicas de uso</h1>
+                <ul>
+                    <li>
+                        <strong>XAMPP:</strong> a pasta htdocs está em
+                        <pre class="inline">~/xampp/htdocs</pre>
+                    </li>
+                    <li>
+                        <strong>MySQL:</strong> Para conectar-se ao banco de dados, utilize o usuário
+                        <strong>fatec</strong> e a senha <strong>fatec</strong>.
+                    </li>
+                    <li>
+                        <strong>MySQL:</strong> Acesse
+                        <a href="http://localhost/phpmyadmin" target="_blank">http://localhost/phpmyadmin</a> para
+                        gerenciar o banco de dados MySQL
+                    </li>
+                    <li>
+                        <strong>Visual Studio Code:</strong> Para desenvolver com uma tecnologia específica, utilize a
+                        funcionalidade de
+                        <a href="https://medium.com/@jeanr.tj/como-criar-gerenciar-perfis-no-vs-code-ca1c50c9b2a"
+                            >profiles</a
+                        >
+                        para utilizar as extensões adequadas
+                    </li>
+                    <li>
+                        <strong>Correção de Erros:</strong> Caso esteja travado, aperte
+                        <pre class="inline">Ctrl+Alt+F3</pre>
+                        para entrar em um terminal TTY, e depois
+                        <pre class="inline">Ctrl+Alt+F7</pre>
+                        para retornar.
+                    </li>
+                    <li>
+                        <strong>Sistema:</strong> para aqueles que preferem utilizar o teclado mais que o mouse,
+                        experimente o
+                        <a href="#i3"><strong>i3</strong></a>
+                    </li>
+                </ul>
+            </div>
+
+            <h1 id="mint-development-environment-1">Mint Development Environment 1</h1>
+
+            <p>
+                Este ambiente foi criado para servir como uma máquina virtual de desenvolvimento pronta para uso em
+                laboratório.
+            </p>
+
+            <p>
+                O sistema operacional escolhido foi o <strong>Linux Mint</strong>, utilizando o
+                <strong>XFCE</strong> como Desktop Environment. O principal motivo dessa escolha é
+                <strong>performance</strong>: XFCE possui baixo consumo de memória e CPU, o que é ideal para máquinas
+                virtuais rodando em computadores de laboratório.
+            </p>
+
+            <p>
+                Além do XFCE, foi incluído também o <strong>Window Manager i3</strong> como opção no login. O i3 permite
+                organizar janelas automaticamente na tela (tiling) e utilizar o computador principalmente através do
+                <strong>teclado</strong>, o que pode aumentar bastante a produtividade para quem prefere esse tipo de
+                fluxo de trabalho.
+            </p>
+
+            <p>
+                Outro ponto importante é que esta máquina virtual foi configurada para ser <strong>efêmera</strong>.
+                Isso significa que
+                <strong
+                    >todas as alterações feitas durante o uso são descartadas quando a máquina virtual é
+                    desligada</strong
+                >. Ao iniciar novamente, o sistema volta ao estado original da imagem.
+            </p>
+
+            <p>Isso evita problemas como:</p>
+
+            <ul>
+                <li>arquivos esquecidos por alunos anteriores</li>
+                <li>configurações quebradas</li>
+                <li>credenciais salvas indevidamente</li>
+                <li>conflitos de ambiente entre usuários diferentes</li>
+            </ul>
+
+            <h1>Informações Gerais</h1>
+
+            <ul>
+                <li><strong>Distro:</strong> Linux Mint</li>
+                <li><strong>Desktop Environment(s):</strong> XFCE e i3</li>
+                <li><strong>Navegadores:</strong> Firefox, Brave</li>
+
+                <li>
+                    <strong>Nerd Fonts:</strong>
+                    <ul>
+                        <li>Ubuntu Nerd Font</li>
+                        <li>JetBrains Mono Nerd Font</li>
+                    </ul>
+                </li>
+
+                <li>
+                    <strong>Editores de código:</strong>
+                    <ul>
+                        <li>Visual Studio Code</li>
+                        <li>Neovim</li>
+                        <li>Eclipse</li>
+                        <li>JetBrains Toolbox (IntelliJ)</li>
+                    </ul>
+                </li>
+
+                <li>
+                    <strong>Ferramentas de versionamento:</strong>
+                    <ul>
+                        <li>Git</li>
+                        <li>Git Credential Manager</li>
+                    </ul>
+                </li>
+
+                <li>
+                    <strong>Aplicações extras:</strong>
+                    <ul>
+                        <li>GIMP</li>
+                        <li>Inkscape</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h1>Tecnologias Disponíveis</h1>
+
+            <p>A imagem foi preparada pensando principalmente em desenvolvimento nas seguintes tecnologias:</p>
+
+            <ul>
+                <li><strong>C# (.NET)</strong></li>
+                <li><strong>C++</strong></li>
+                <li><strong>Java</strong></li>
+                <li><strong>Python 3</strong></li>
+                <li><strong>PHP 8.4 + Composer</strong></li>
+                <li><strong>Node.js + npm</strong></li>
+                <li><strong>Apache + PHP + MySQL</strong></li>
+            </ul>
+
+            <h1>Diferenças importantes</h1>
+
+            <h2>1. C#</h2>
+
+            <p>
+                A forma tradicional de se desenvolver aplicações em C# é utilizando o <strong>Visual Studio</strong>,
+                que não possui suporte para Linux.
+            </p>
+
+            <p>No Linux, o desenvolvimento normalmente é feito utilizando:</p>
+
+            <ul>
+                <li>.NET CLI</li>
+                <li>Visual Studio Code</li>
+                <li>Extensões da Microsoft para C#</li>
+            </ul>
+
+            <p>Vídeo de configuração:</p>
+
+            <p>
+                <a href="https://www.youtube.com/watch?v=chsJ6W2tfJA"> https://www.youtube.com/watch?v=chsJ6W2tfJA </a>
+            </p>
+
+            <h2>2. XAMPP</h2>
+
+            <p>A ferramenta <strong>XAMPP</strong> não foi instalada.</p>
+
+            <p>O ambiente já possui:</p>
+
+            <ul>
+                <li>Apache</li>
+                <li>PHP</li>
+                <li>MySQL / MariaDB</li>
+            </ul>
+
+            <p>A pasta <code>/xampp/htdocs</code> foi criada apenas por conveniência.</p>
+
+            <h1 id="i3">Atalhos avançados: i3 Desktop Environment</h1>
+
+            <p>O XFCE foi escolhido pela leveza da máquina virtual.</p>
+
+            <p>Para quem prefere trabalhar com teclado, recomenda-se utilizar o <strong>i3</strong>.</p>
+
+            <p>Documentação:</p>
+
+            <p>
+                <a href="https://i3wm.org/docs/userguide.html"> https://i3wm.org/docs/userguide.html </a>
+            </p>
+
+            <h3>Abrir programas</h3>
+
+            <p><strong>Win + D</strong> abre o launcher rofi.</p>
+
+            <h3>Fechar janela</h3>
+
+            <p><strong>Win + Shift + Q</strong></p>
+
+            <h3>Workspaces</h3>
+
+            <pre><code>Win + 1
+Win + 2
+Win + 3
+</code></pre>
+
+            <p>Mover janela:</p>
+
+            <pre><code>Win + Shift + número
+</code></pre>
+
+            <h3>Abrir terminal</h3>
+
+            <pre><code>Win + Enter
+</code></pre>
+
+            <h1>Detalhes Técnicos</h1>
+
+            <ul>
+                <li>Polybar configurada para uso com i3</li>
+                <li>rofi configurado como launcher</li>
+                <li>polkit-gnome-authentication-agent iniciado automaticamente</li>
+                <li>Serviços desnecessários desativados via systemd</li>
+                <li>Atualizações automáticas desativadas</li>
+                <li>Nerd Fonts instaladas</li>
+                <li>Serviço <code>user-reset.service</code> remove credenciais Git e chaves SSH automaticamente</li>
+            </ul>
+
+            <footer>
+                <p><strong>Mint Development Environment</strong></p>
+
+                <p>Criado no primeiro semestre de 2026 por <strong>Eduardo Soares e Araújo</strong>.</p>
+            </footer>
+        </div>
+    </body>
+</html>
