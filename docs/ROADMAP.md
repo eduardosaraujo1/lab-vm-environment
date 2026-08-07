@@ -1,9 +1,10 @@
 # Lista de Tarefas
 
-1. Documentar todas as tecnologias que serão utilizadas pelo usuário
-2. Consolidar com Claude essas disciplinas com o plano feito anteriormente (README_old.md)
-3. Criar .vdi a partir das instruções, documentando qualquer desvio de plano em `implementation_deviations.md`
-4. Escrever manual do usuário para o projeto e incluir no README.md principal usando \<details\>
+1. Documentar todas as tecnologias que serão utilizadas durante o curso em 2026/2
+2. Adicionar documento ADR (Architectural Decision Record) escrito pelo Claude com base nas disciplinas e requisitos
+3. Consolidar com Claude essas disciplinas com o plano feito anteriormente (README_old.md)
+4. Criar .vdi a partir das instruções, documentando qualquer desvio de plano em `implementation_deviations.md`
+5. Escrever manual do usuário para o projeto e incluir no README.md principal usando \<details\>
 
 # Scratchpad
 
@@ -16,6 +17,6 @@ The first step is to decide how you will document this project. If possible, ref
 Then, look at the disciplines ministered in the institution and decide what base system should be used. The tech team suggested Debian since its update cycles are less frequent, but still keeps a relatively rich software support. However,  they also said an immutable distro could theoretically work but they have no experience on software support on those. The team also advised that Wayland-based environments are prone to screen tearing on VirtualBox, and Xorg is prefered. Lastly, the team suggested to use docker containers where possible, because those are easier to update and maintain even if an application is not directly compatible with the underlying OS.
 
 Lastly, the documentation should be written in pt-BR. Here is the map of discipline and technologies used (so far):
-(see grade-2026.md)
+(see docs/grade-2026.md)
 
 

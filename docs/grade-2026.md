@@ -59,7 +59,7 @@ _obs: as disciplinas marcadas marcadas com `-` podem:_
 
 ## 5º Semestre
 
-- **APREN. MAQUINA V:** -*
+- **APREN. MAQUINA V:** Python/Jupyter, -*
 - **COMP. NUVEM I V:** -*
 - **FUND. REDAC. TEC V:** -*
 - **Inglês III V:** -*
