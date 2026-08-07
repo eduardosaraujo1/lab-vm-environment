@@ -1,0 +1,79 @@
+# Grade e Tecnologias - Desenvolvimento de Software Multiplataforma 2026/2
+
+Segue abaixo a lista de todas as disciplinas de Desenvolvimento de Software Multiplataforma em 2026/2, juntamente com as aplicações que são previstas de serem utilizadas:
+
+_obs: as disciplinas marcadas marcadas com `-` podem:_
+1. _não usar nenhuma tecnologia;_
+2. _utilizar tecnologias web ou cloud que não precisam de instalação;_
+3. _utilizar tecnologias ainda desconhecidas pelo autor do projeto (marcada com `-*`);_
+  - _seja por falta de conhecimento da tecnologia em questão, ou que a disciplina faria o uso da tal._
+4. _passar a utilizar diferentes tecnologias a depender do professor ministrando a disciplina;_
+
+## Geral
+
+- Neovim 12x
+- Git + Git Credential Manager
+- [Nala command-line front-end for libapt-pkg](https://github.com/volitank/nala)
+- docker
+- [eduardosaraujo1/simple-container-manager](https://github.com/eduardosaraujo1/simple-container-manager/)
+- Toolkit para C++ development em VsCode (CMake, gdb, Ninja, clangd, etc)
+- Toolkit para Java development em VsCode
+
+## 1º Semestre
+
+- **ALG. PROG V:** dotnet para desenvolvimento C# Console App
+- **DES. DIGITAL V:** Inkscape, GIMP
+- **DES. WEB I V:** Visual Studio Code, nodejs, prettier, eslint, Chrome
+- **ENG. SOFT. I V:** -
+- **MOD. BD V:** DbDesigner Fork (Wine), Oracle Data Modeler
+- **SIST. OP. REDES COMP. V:** Cisco Packet Tracer sobre `firejail --net 0`, Wireshark
+
+## 2º Semestre
+
+- **BD RELACIONAL V:** Oracle XE 11g
+- **DES. WEB II V:** PHP8.3, Apache Server, Laravel tools, Visual Studio Code + Intelephense, simple-container-manager masked as XAMPP
+- **ENG. SOFT. II V:** -
+- **EST. DADOS V:** Visual Studio Code + C++ Toolkit
+- **MAT. COMP V:** Excel/Google Sheets/LibreOffice Calc
+- **TEC. PROG I V:** Eclipse, openjdk-25
+
+## 3º Semestre
+
+- **ALG. LINEAR V:** Excel/Google Sheets/LibreOffice Calc
+- **BD NAO RELACIONAL V:** -
+- **DES. WEB III V:** Python3.14x, Django
+- **GEST. AGIL PROJ. SOFT. V:** -*
+- **Inglês I V:** -*
+- **INT. HUM. COMP. V:** Visual Studio Code
+- **TEC. PROG II V:** IntelliJ, Maven, Gradle, openjdk-25
+
+## 4º Semestre
+
+- **Estatística Aplicada V:** -*
+- **EXP. USUARIO V:** -*
+- **Inglês II V:** -*
+- **INT. COISAS APLIC. V:** -*
+- **INTEG. ENT. CONT. V:** -*
+- **LAB. DES. WEB V:**  -*
+- **PROG. DISP. MOVEIS I V:** Android Studio + Android 16 emulator, Kotlin Toolkit, Jetpack Compose
+
+## 5º Semestre
+
+- **APREN. MAQUINA V:** -*
+- **COMP. NUVEM I V:** -*
+- **FUND. REDAC. TEC V:** -*
+- **Inglês III V:** -*
+- **LAB. DES. DISP. MOVEIS V:** -*
+- **PRO. DISP. MOVEIS II V:** React Native, Expo
+- **SEGURANÇA EM DESENVOLVIMENTO DE APLICAÇÕES V:** -*
+
+## 6º Semestre
+
+- **COMP. NUVEM II V:** -*
+- **ETI. PROF. PAT V:** -*
+- **Inglês IV V:** -*
+- **LAB. DES. MULTI V:** -*
+- **MIN. DADOS V:** -*
+- **PROC. LING. NATURAL V:** -*
+- **QUAL. TESTES SOFT. V:** IntelliJ + JUnit
+
