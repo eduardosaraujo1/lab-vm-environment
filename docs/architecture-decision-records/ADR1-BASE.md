@@ -46,19 +46,19 @@ As alternativas foram avaliadas principalmente de acordo com os requisitos de co
 
 ### Sistemas operacionais não baseados em Linux
 
-- [Windows](LINK) — Foi descartado devido ao maior consumo de recursos e armazenamento em comparação com as alternativas Linux consideradas, tornando-o menos adequado para o hardware limitado utilizado pelo projeto.
+- [Windows](https://en.wikipedia.org/wiki/Microsoft_Windows) — Foi descartado devido ao maior consumo de recursos e armazenamento em comparação com as alternativas Linux consideradas, tornando-o menos adequado para o hardware limitado utilizado pelo projeto.
 
-- [FreeBSD](LINK) — Foi descartado principalmente pela menor compatibilidade com as tecnologias e ferramentas utilizadas durante o curso. Embora seja adequado para diversos cenários de uso, a necessidade de compatibilidade ampla com o ecossistema Linux utilizado no projeto torna o custo de adaptação desnecessário.
+- [FreeBSD](https://www.freebsd.org/) — Foi descartado principalmente pela menor compatibilidade com as tecnologias e ferramentas utilizadas durante o curso. Embora seja adequado para diversos cenários de uso, a necessidade de compatibilidade ampla com o ecossistema Linux utilizado no projeto torna o custo de adaptação desnecessário.
 
 ### Distribuições Linux
 
-- [NixOS](INCLUDE LINK) — Foi descartado apesar de oferecer vantagens relevantes em reprodutibilidade e gerenciamento declarativo do sistema. A complexidade adicional e a curva de aprendizado do NixOS aumentariam o tempo necessário para desenvolver e manter o sistema, contrariando o objetivo de manter a solução simples de configurar e utilizar.
+- [NixOS](https://nixos.org/) — Foi descartado apesar de oferecer vantagens relevantes em reprodutibilidade e gerenciamento declarativo do sistema. A complexidade adicional e a curva de aprendizado do NixOS aumentariam o tempo necessário para desenvolver e manter o sistema, contrariando o objetivo de manter a solução simples de configurar e utilizar.
 
 - [Ubuntu 24.04 LTS](https://releases.ubuntu.com/noble/) — Foi descartado porque, apesar da estabilidade e ampla compatibilidade, sua configuração padrão não corresponde à stack de ambiente gráfico definida para o projeto. A utilização de uma base diferente da escolhida também não apresentou benefícios suficientes para justificar a mudança.
 
-- [Fedora Workstation](INCLUDE FEDORA URL) — Foi descartado pelos mesmos motivos gerais do Ubuntu: embora seja uma distribuição moderna e bem suportada, sua configuração padrão e ciclo de atualizações não se alinham tão bem aos requisitos de estabilidade e à stack definida para o projeto.
+- [Fedora Workstation](https://fedoraproject.org/workstation/) — Foi descartado pelos mesmos motivos gerais do Ubuntu: embora seja uma distribuição moderna e bem suportada, sua configuração padrão e ciclo de atualizações não se alinham tão bem aos requisitos de estabilidade e à stack definida para o projeto.
 
-[Linux Mint: Cinnamon](INCLUIR MINT URL) — Foi utilizado em um protótipo do projeto e serviu como proof of concept para validar a abordagem adotada. Entretanto, sua base Ubuntu não atende aos requisitos definidos para este projeto. Além disso, a instalação padrão inclui pacotes que não são utilizados no ambiente imutável proposto, resultando em consumo adicional de armazenamento e componentes desnecessários.
+- [Linux Mint: Cinnamon](https://www.linuxmint.com/) — Foi utilizado em um protótipo do projeto e serviu como proof of concept para validar a abordagem adotada. Entretanto, sua base Ubuntu não atende aos requisitos definidos para este projeto. Além disso, a instalação padrão inclui pacotes que não são utilizados no ambiente imutável proposto, resultando em consumo adicional de armazenamento e componentes desnecessários.
 
 - [Fedora Kinoite](https://fedoraproject.org/pt-br/atomic-desktops/kinoite/) — Foi descartado por utilizar uma abordagem atômica/imutável. Embora esse modelo ofereça vantagens de confiabilidade e recuperação, ele reduz a maleabilidade necessária para modificar diretamente o sistema base e aplicar patches ou ajustes durante o processo de implantação.
 
@@ -68,15 +68,15 @@ As alternativas foram avaliadas principalmente de acordo com os requisitos de co
 
 ### Desktop Environments e Window Managers
 
-- [Hyprland](LINK) — Foi descartado como ambiente principal porque sua principal vantagem para este projeto seria a possibilidade de realizar uma customização extensa da experiência gráfica. Essa customização não é necessária para o objetivo do ambiente principal e adicionaria complexidade à configuração e manutenção.
+- [Hyprland](https://hypr.land/) — Foi descartado como ambiente principal porque sua principal vantagem para este projeto seria a possibilidade de realizar uma customização extensa da experiência gráfica. Essa customização não é necessária para o objetivo do ambiente principal e adicionaria complexidade à configuração e manutenção.
 
-- [GNOME](LINK) — Foi descartado devido a problemas observados durante os testes, incluindo dificuldades relacionadas a screen tearing, além de uma experiência de uso menos próxima do modelo de interface ao qual os usuários-alvo estão acostumados.
+- [GNOME](https://www.gnome.org/) — Foi descartado devido a problemas observados durante os testes, incluindo dificuldades relacionadas a screen tearing, além de uma experiência de uso menos próxima do modelo de interface ao qual os usuários-alvo estão acostumados.
 
-- [KDE Plasma](LINK) — Foi considerado uma das alternativas mais próximas do perfil desejado, principalmente por oferecer uma experiência familiar aos usuários de Windows e grande capacidade de configuração. Entretanto, os testes realizados apresentaram consumo de armazenamento superior ao Cinnamon, fazendo com que este último fosse considerado mais adequado para o hardware e as restrições do projeto.
+- [KDE Plasma](https://kde.org/plasma-desktop/) — Foi considerado uma das alternativas mais próximas do perfil desejado, principalmente por oferecer uma experiência familiar aos usuários de Windows e grande capacidade de configuração. Entretanto, os testes realizados apresentaram consumo de armazenamento superior ao Cinnamon, fazendo com que este último fosse considerado mais adequado para o hardware e as restrições do projeto.
 
-- [XFCE](LINK) — Foi descartado devido a resultados insatisfatórios nos testes anteriores de experiência de uso. Embora seja leve e adequado para hardware limitado, a economia de recursos não compensou a experiência de usuário considerada inferior para os objetivos do projeto.
+- [XFCE](https://xfce.org/) — Foi descartado devido a resultados insatisfatórios nos testes anteriores de experiência de uso. Embora seja leve e adequado para hardware limitado, a economia de recursos não compensou a experiência de usuário considerada inferior para os objetivos do projeto.
 
-- [LXQt](LINK) — Foi descartado por razões semelhantes às do XFCE. Apesar do baixo consumo de recursos, os testes anteriores apresentaram uma experiência de uso menos adequada ao público-alvo.
+- [LXQt](https://lxqt-project.org/) — Foi descartado por razões semelhantes às do XFCE. Apesar do baixo consumo de recursos, os testes anteriores apresentaram uma experiência de uso menos adequada ao público-alvo.
 
 ### Display Server
 
