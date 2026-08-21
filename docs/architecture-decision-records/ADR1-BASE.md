@@ -23,20 +23,18 @@ Com base nos requisitos, foi escolhida a seguinte stack de sistema operacional:
 - Distribuição: [Debian 13](https://www.debian.org/News/2026/20260711)
 - Display Manager: [LightDM](https://wiki.archlinux.org/title/LightDM)
 - Desktop Environment: [Cinnamon](https://wiki.archlinux.org/title/Cinnamon)
-- Ambiente alternativo:
+- Tiling Window Manager:
   - [i3 Tiling Window Manager](https://wiki.archlinux.org/title/I3)
   - [Rofi](https://wiki.archlinux.org/title/Rofi)
   - [Polybar](https://wiki.archlinux.org/title/Polybar)
-
-A escolha prioriza uma base estável e de manutenção previsível, mantendo uma interface gráfica familiar para usuários provenientes do Windows e permitindo que usuários interessados utilizem um ambiente baseado em Tiling Window Manager sem substituir a instalação principal.
 
 ## Justificativa
 
 O Debian foi escolhido por oferecer uma base estável, ampla compatibilidade com softwares disponíveis para Linux e um ciclo de manutenção adequado ao objetivo do projeto. A distribuição também permite instalar e configurar apenas os componentes necessários, contribuindo para manter o consumo de armazenamento sob controle.
 
-O Cinnamon foi escolhido como ambiente principal por oferecer uma experiência de uso semelhante à de sistemas Windows, reduzindo a curva de adaptação para os usuários. Durante os testes, também apresentou menor consumo de armazenamento que o KDE Plasma mantendo os recursos necessários para o ambiente principal.
+O Cinnamon foi escolhido como ambiente principal por oferecer uma experiência de uso semelhante à de sistemas Windows, reduzindo a curva de adaptação para os usuários. Além disso, é o ambiente gráfico padrão do Linux Mint, uma distribuição conhecida por priorizar facilidade de uso e acessibilidade para usuários com diferentes níveis de experiência. Durante os testes, o Cinnamon também apresentou menor consumo de armazenamento que o KDE Plasma, mantendo os recursos necessários para o ambiente principal.
 
-O LightDM foi escolhido como Display Manager por ser compatível com os ambientes selecionados e permitir a seleção do ambiente gráfico durante o login. Isso permite manter o Cinnamon como ambiente padrão e disponibilizar o i3 como alternativa sem exigir instalações ou configurações separadas para cada usuário.
+O LightDM foi escolhido como Display Manager por ser compatível com os ambientes selecionados, e ser a escolha padrão no Linux Mint, provando ser eficiente e confiável. Isso permite manter o Cinnamon como ambiente padrão e disponibilizar o i3 como alternativa sem exigir instalações ou configurações separadas para cada usuário.
 
 O i3, acompanhado de Rofi e Polybar, foi escolhido como ambiente alternativo por oferecer uma introdução simples ao conceito de Tiling Window Manager, sem substituir a experiência tradicional fornecida pelo Cinnamon. Dessa forma, o mesmo sistema pode atender tanto usuários que preferem uma interface gráfica convencional quanto alunos interessados em experimentar um ambiente orientado a atalhos e gerenciamento automático de janelas.
 
@@ -80,8 +78,10 @@ As alternativas foram avaliadas principalmente de acordo com os requisitos de co
 
 ### Display Server
 
-Também foi considerada a utilização de ambientes baseados em [Wayland](https://wiki.archlinux.org/title/Wayland). Wayland é o protocolo de display utilizado por diversos ambientes gráficos modernos e possui suporte consolidado para uma grande parte das aplicações atuais, além de oferecer uma arquitetura diferente da tradicional baseada em X11.
+Também foi considerada a utilização de ambientes baseados em [Wayland](https://wiki.archlinux.org/title/Wayland), protocolo de display utilizado por diversos ambientes gráficos modernos. Além de possuir suporte consolidado em aplicações atuais, Wayland apresenta uma arquitetura diferente da tradicional baseada em X11. Para avaliar essa possibilidade, foi considerado principalmente o KDE Plasma, que apresenta suporte maduro ao Wayland e, entre as alternativas avaliadas, mostrou-se a opção mais adequada para uma sessão baseada nesse protocolo.
 
-Entretanto, os testes realizados com Cinnamon e KDE Plasma indicaram que a combinação Cinnamon + X11 apresentou o melhor equilíbrio entre consumo de recursos, compatibilidade e previsibilidade para este projeto. Como o Cinnamon ainda possui suporte a X11, essa combinação permite utilizar o ambiente escolhido sem introduzir uma camada adicional de compatibilidade.
+Para a alternativa baseada em X11, o Cinnamon apresentou melhores características para os requisitos do projeto. Os testes realizados indicaram que a combinação Cinnamon + X11 ofereceu um melhor equilíbrio entre consumo de recursos, compatibilidade e previsibilidade. Como o Cinnamon possui suporte consolidado a X11, essa combinação também evita a introdução de camadas adicionais de compatibilidade para o ambiente escolhido.
 
-Manter o mesmo display server nos ambientes principal e alternativo também reduz a quantidade de configurações específicas necessárias para cada sessão e, consequentemente, as possibilidades de problemas durante a troca de ambiente pelo usuário. Por esse motivo, o projeto utiliza X11 como base para as sessões gráficas, enquanto o suporte a Wayland poderá ser reavaliado em uma versão futura caso os requisitos ou o suporte dos ambientes utilizados mudem.
+Assim, a comparação não se restringiu aos display servers isoladamente, mas às combinações de ambiente gráfico e protocolo que apresentaram maior aderência aos requisitos do projeto: KDE Plasma + Wayland e Cinnamon + X11. Embora a primeira seja uma alternativa tecnicamente viável e que poderá ser utilizada em uma versão futura, os resultados obtidos favoreceram Cinnamon + X11. Além disso, utilizar o mesmo display server nas sessões principal e alternativa reduz a quantidade de configurações específicas necessárias para cada sessão e as possibilidades de problemas durante a troca de ambiente pelo usuário.
+
+Por esses motivos, o projeto adota X11 como base para as sessões gráficas. O suporte a Wayland poderá ser reavaliado em uma versão futura caso os requisitos do projeto ou o suporte dos ambientes utilizados se modifiquem.
