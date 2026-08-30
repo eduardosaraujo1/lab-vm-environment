@@ -1,12 +1,14 @@
-(TODO: add headings)
+# Grade e Tecnologias - Desenvolvimento de Software Multiplataforma 2026/2
 
-Grade e Tecnologias - Desenvolvimento de Software Multiplataforma 2026/2
+Este documento relaciona as aplicações e ferramentas utilizadas ao longo das disciplinas de Desenvolvimento de Software Multiplataforma em 2026/2, indicando também o método previsto para instalação de cada uma. 
 
-Este documento relaciona as aplicações e ferramentas utilizadas ao longo das disciplinas de Desenvolvimento de Software Multiplataforma em 2026/2, indicando também o método previsto para instalação de cada uma.
+- A coluna Instalação deve ser preenchida conforme a estratégia adotada para a imagem do sistema.
+- Quando uma aplicação fizer parte de outra ferramenta ou ambiente, sua instalação pode ser indicada como dependência. Exemplos: "Manual (Android Studio)" ou "Manual (Wine)".
+- Aplicações utilizadas apenas como parte do ambiente geral e não estão atreladas a uma disciplina devem ser marcadas como `Uso geral`.
 
 «Obs.: as disciplinas e tecnologias estão sujeitas a mudanças ao decorrer do curso.»
 
-Métodos de instalação
+## Métodos de instalação
 
 As aplicações poderão ser instaladas utilizando um dos seguintes métodos:
 
@@ -16,16 +18,17 @@ As aplicações poderão ser instaladas utilizando um dos seguintes métodos:
 - Flatpak — aplicações distribuídas como Flatpak;
 - AppImage — aplicações distribuídas como AppImage;
 - Manual — instalação ou configuração manual, incluindo binários, scripts, compilação ou outros métodos não contemplados acima.
+- TBD — _To be Defined_, ou seja, ainda não definido
 
 Quando uma aplicação depender de outra camada de compatibilidade, isso será indicado no campo de instalação. Por exemplo, uma aplicação Windows instalada através do Wine será indicada como "Manual (Wine)".
 
 ---
 
-Aplicações
+# Aplicações
 
-Editores e IDEs
+## Editores e IDEs
 
-Visual Studio Code
+### Visual Studio Code
 
 - Instalação: TBD
 - Disciplinas:
@@ -34,26 +37,26 @@ Visual Studio Code
   - EST. DADOS V
   - INT. HUM. COMP. V
 
-Neovim
+### Neovim
 
 - Instalação: TBD
 - Disciplinas:
   - Uso geral
 
-Eclipse
+### Eclipse
 
 - Instalação: TBD
 - Disciplinas:
   - TEC. PROG I V
 
-IntelliJ IDEA
+### IntelliJ IDEA
 
 - Instalação: TBD
 - Disciplinas:
   - TEC. PROG II V
   - QUAL. TESTES SOFT. V
 
-Android Studio
+### Android Studio
 
 - Instalação: TBD
 - Disciplinas:
@@ -61,27 +64,27 @@ Android Studio
 
 ---
 
-Linguagens, runtimes e SDKs
+## Linguagens, runtimes e SDKs
 
-.NET
+### .NET
 
 - Instalação: TBD
 - Disciplinas:
   - ALG. PROG V
 
-Node.js
+### Node.js
 
 - Instalação: TBD
 - Disciplinas:
   - DES. WEB I V
 
-PHP 8.3
+### PHP 8.3
 
 - Instalação: TBD
 - Disciplinas:
   - DES. WEB II V
 
-Python 3.14+
+### Python 3.14+
 
 - Instalação: TBD
 - Disciplinas:
@@ -89,14 +92,14 @@ Python 3.14+
   - DES. WEB III V
   - APREN. MAQUINA V
 
-OpenJDK 17
+### OpenJDK 21
 
 - Instalação: TBD
 - Disciplinas:
   - TEC. PROG I V
   - TEC. PROG II V
 
-Kotlin
+### Kotlin
 
 - Instalação: TBD
 - Disciplinas:
@@ -104,30 +107,30 @@ Kotlin
 
 ---
 
-Desenvolvimento C/C++
+## Desenvolvimento C/C++
 
-CMake
-
-- Instalação: TBD
-- Disciplinas:
-  - EST. DADOS V
-  - Uso geral
-
-GDB
+### CMake
 
 - Instalação: TBD
 - Disciplinas:
   - EST. DADOS V
   - Uso geral
 
-Ninja
+### GDB
 
 - Instalação: TBD
 - Disciplinas:
   - EST. DADOS V
   - Uso geral
 
-clangd
+### Ninja
+
+- Instalação: TBD
+- Disciplinas:
+  - EST. DADOS V
+  - Uso geral
+
+### clangd
 
 - Instalação: TBD
 - Disciplinas:
@@ -136,57 +139,57 @@ clangd
 
 ---
 
-Desenvolvimento Web
+## Desenvolvimento Web
 
-Prettier
-
-- Instalação: TBD
-- Disciplinas:
-  - DES. WEB I V
-
-ESLint
+### Prettier
 
 - Instalação: TBD
 - Disciplinas:
   - DES. WEB I V
 
-Chrome
+### ESLint
 
 - Instalação: TBD
 - Disciplinas:
   - DES. WEB I V
 
-Apache
+### Chrome
+
+- Instalação: TBD
+- Disciplinas:
+  - DES. WEB I V
+
+### Apache
 
 - Instalação: TBD
 - Disciplinas:
   - DES. WEB II V
 
-Laravel
+### Laravel
+
+- Instalação: Manual
+- Disciplinas:
+  - DES. WEB II V
+
+### phpMyAdmin
 
 - Instalação: TBD
 - Disciplinas:
   - DES. WEB II V
 
-phpMyAdmin
-
-- Instalação: TBD
-- Disciplinas:
-  - DES. WEB II V
-
-Django
+### Django
 
 - Instalação: TBD
 - Disciplinas:
   - DES. WEB III V
 
-React Native
+### React Native
 
 - Instalação: TBD
 - Disciplinas:
   - PRO. DISP. MOVEIS II V
 
-Expo
+### Expo
 
 - Instalação: TBD
 - Disciplinas:
@@ -194,47 +197,47 @@ Expo
 
 ---
 
-Bancos de dados
+## Bancos de dados
 
-Oracle XE 11g
+### Oracle XE 11g
 
 - Instalação: TBD
 - Disciplinas:
   - BD RELACIONAL V
 
-PostgreSQL
+### PostgreSQL
 
 - Instalação: TBD
 - Disciplinas:
   - BD NAO RELACIONAL V
   - TEC. PROG II V
 
-Redis
+### Redis
 
 - Instalação: TBD
 - Disciplinas:
   - BD NAO RELACIONAL V
 
-Neo4j
+### Neo4j
 
 - Instalação: TBD
 - Disciplinas:
   - BD NAO RELACIONAL V
 
-pgAdmin 4
+### pgAdmin 4
 
 - Instalação: TBD
 - Disciplinas:
   - BD NAO RELACIONAL V
   - TEC. PROG II V
 
-DbDesigner Fork
+### DbDesigner Fork
 
 - Instalação: Manual (Wine)
 - Disciplinas:
   - MOD. BD V
 
-Oracle Data Modeler
+### Oracle Data Modeler
 
 - Instalação: TBD
 - Disciplinas:
@@ -242,42 +245,42 @@ Oracle Data Modeler
 
 ---
 
-Dados, matemática e análise
+## Dados, matemática e análise
 
-Excel
-
-- Instalação: TBD
-- Disciplinas:
-  - MAT. COMP V
-  - ALG. LINEAR V
-
-Google Sheets
+### Excel
 
 - Instalação: TBD
 - Disciplinas:
   - MAT. COMP V
   - ALG. LINEAR V
 
-LibreOffice Calc
+### Google Sheets
 
 - Instalação: TBD
 - Disciplinas:
   - MAT. COMP V
   - ALG. LINEAR V
 
-Apache Hop
+### LibreOffice Calc
+
+- Instalação: TBD
+- Disciplinas:
+  - MAT. COMP V
+  - ALG. LINEAR V
+
+### Apache Hop
 
 - Instalação: TBD
 - Disciplinas:
   - BD NAO RELACIONAL V
 
-Power BI
+### Power BI
 
 - Instalação: TBD
 - Disciplinas:
   - BD NAO RELACIONAL V
 
-Jupyter
+### Jupyter
 
 - Instalação: TBD
 - Disciplinas:
@@ -285,33 +288,33 @@ Jupyter
 
 ---
 
-Ferramentas de infraestrutura e desenvolvimento
+## Ferramentas de infraestrutura e desenvolvimento
 
-Git
-
-- Instalação: TBD
-- Disciplinas:
-  - Uso geral
-
-Git Credential Manager
+### Git
 
 - Instalação: TBD
 - Disciplinas:
   - Uso geral
 
-Zsh
+### Git Credential Manager
 
 - Instalação: TBD
 - Disciplinas:
   - Uso geral
 
-Oh My Zsh
+### Zsh
+
+- Instalação: TBD
+- Disciplinas:
+  - Uso geral
+
+### Oh My Zsh
 
 - Instalação: Manual
 - Disciplinas:
   - Uso geral
 
-Docker
+### Docker
 
 - Instalação: TBD
 - Disciplinas:
@@ -319,13 +322,13 @@ Docker
   - DES. WEB II V
   - Possíveis disciplinas futuras que utilizem containers
 
-Nix Package Manager
+### Nix Package Manager
 
 - Instalação: TBD
 - Disciplinas:
   - Uso geral
 
-simple-container-manager
+### simple-container-manager
 
 - Instalação: TBD
 - Disciplinas:
@@ -333,21 +336,21 @@ simple-container-manager
 
 ---
 
-Redes
+## Redes
 
-Cisco Packet Tracer
-
-- Instalação: TBD
-- Disciplinas:
-  - SIST. OP. REDES COMP. V
-
-Wireshark
+### Cisco Packet Tracer
 
 - Instalação: TBD
 - Disciplinas:
   - SIST. OP. REDES COMP. V
 
-Firejail
+### Wireshark
+
+- Instalação: TBD
+- Disciplinas:
+  - SIST. OP. REDES COMP. V
+
+### Firejail
 
 - Instalação: TBD
 - Disciplinas:
@@ -355,15 +358,21 @@ Firejail
 
 ---
 
-Design
+## Design
 
-Inkscape
+### Inkscape
 
 - Instalação: TBD
 - Disciplinas:
   - DES. DIGITAL V
 
-GIMP
+### GIMP/PhotoGIMP
+
+- Instalação: TBD
+- Disciplinas:
+  - DES. DIGITAL V
+
+### Pinta
 
 - Instalação: TBD
 - Disciplinas:
@@ -371,62 +380,64 @@ GIMP
 
 ---
 
-Android
+## Android
 
-Android 16 Emulator
+### Android Studio
 
-- Instalação: Via Android Studio
+- Instalação: TBD
 - Disciplinas:
   - PROG. DISP. MOVEIS I V
 
-Jetpack Compose
+### Android SDK
 
-- Instalação: Via Android Studio / Kotlin
+- Instalação: Manual(Android Studio/sdkmanager)
+- Componentes:
+  - Android SDK Command-Line Tools
+  - Android SDK Platform-Tools
+  - Android SDK Build-Tools
+  - Android SDK Platform
+- Configuração:
+  - `ANDROID_HOME`
+  - `PATH`
 - Disciplinas:
   - PROG. DISP. MOVEIS I V
 
 ---
 
-Java
+## Java
 
-Maven
-
-- Instalação: TBD
-- Disciplinas:
-  - TEC. PROG II V
-
-Gradle
+## Maven
 
 - Instalação: TBD
 - Disciplinas:
   - TEC. PROG II V
 
-JUnit
+## Gradle
 
-- Instalação: Via Gradle/Maven
+- Instalação: TBD
 - Disciplinas:
-  - QUAL. TESTES SOFT. V
+  - TEC. PROG II V
 
 ---
 
-Disciplinas sem aplicações definidas
+# Disciplinas sem aplicações definidas
 
 As seguintes disciplinas ainda não possuem aplicações ou ferramentas definidas:
 
-1º Semestre
+## 1º Semestre
 
 - ENG. SOFT. I V
 
-2º Semestre
+## 2º Semestre
 
 - ENG. SOFT. II V
 
-3º Semestre
+## 3º Semestre
 
 - GEST. AGIL PROJ. SOFT. V
 - Inglês I V
 
-4º Semestre
+## 4º Semestre
 
 - Estatística Aplicada V
 - EXP. USUARIO V
@@ -435,7 +446,7 @@ As seguintes disciplinas ainda não possuem aplicações ou ferramentas definida
 - INTEG. ENT. CONT. V
 - LAB. DES. WEB V
 
-5º Semestre
+## 5º Semestre
 
 - COMP. NUVEM I V
 - FUND. REDAC. TEC V
@@ -443,7 +454,7 @@ As seguintes disciplinas ainda não possuem aplicações ou ferramentas definida
 - LAB. DES. DISP. MOVEIS V
 - SEGURANÇA EM DESENVOLVIMENTO DE APLICAÇÕES V
 
-6º Semestre
+## 6º Semestre
 
 - COMP. NUVEM II V
 - ETI. PROF. PAT V
@@ -454,10 +465,3 @@ As seguintes disciplinas ainda não possuem aplicações ou ferramentas definida
 
 ---
 
-Observações
-
-- A coluna Instalação deve ser preenchida conforme a estratégia adotada para a imagem do sistema.
-- Uma mesma aplicação deve possuir uma única entrada, mesmo quando utilizada por várias disciplinas.
-- Quando uma aplicação fizer parte de outra ferramenta ou ambiente, sua instalação pode ser indicada como dependência. Exemplos: "Via Android Studio", "Via Gradle/Maven" ou "Manual (Wine)".
-- Aplicações utilizadas apenas como parte do ambiente geral devem ser marcadas como `Uso geral`.
-- As tecnologias marcadas como "TBD" ainda precisam ter seu método de instalação definido.
