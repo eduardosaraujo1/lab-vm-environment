@@ -460,3 +460,12 @@ O ambiente deve permitir:
 - Visualização de dispositivos e serviços relevantes.
 
 O usuário não deve precisar utilizar o terminal para executar tarefas de segurança comuns.
+
+# 24. Fontes
+
+O ambiente deve fornecer fontes normalmente disponíveis emm ambientes desktop, como:
+
+- Fontes Microsoft TrueType Proprietárias
+- Fontes [Noto](https://fonts.google.com/noto) para emojis e unicode
+- Fontes [Liberation](https://www.dafont.com/liberation-sans.font) para compatibilidade com documentos Linux
+- [Nerd Fonts](https://www.nerdfonts.com/) para editores de código

@@ -1,6 +1,6 @@
-# ADR1 - Escolha de sistema operacional base
+# Escolha de sistema operacional base
 
-**Status**: Pendente
+**Status**: Aceito
 
 ## Contexto
 
