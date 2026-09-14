@@ -1,6 +1,6 @@
-# Escolha de sistema operacional base
+# Architecture Decision Record 1 - Escolha do Sistema Operacional
 
-**Status**: Aceito
+**Status: Aceito**
 
 ## Contexto
 

@@ -16,8 +16,7 @@ As aplicações poderão ser instaladas utilizando um dos seguintes métodos:
 - Nix — Nix Package Manager;
 - Docker — containers;
 - Flatpak — aplicações distribuídas como Flatpak;
-- AppImage — aplicações distribuídas como AppImage;
-- Manual — instalação ou configuração manual, incluindo binários, scripts, compilação ou outros métodos não contemplados acima.
+- Manual — instalação ou configuração manual, incluindo AppImage, binários, scripts, compilação ou outros métodos não contemplados acima.
 - TBD — _To be Defined_, ou seja, ainda não definido
 
 Quando uma aplicação depender de outra camada de compatibilidade, isso será indicado no campo de instalação. Por exemplo, uma aplicação Windows instalada através do Wine será indicada como "Manual (Wine)".

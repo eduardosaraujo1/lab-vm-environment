@@ -1,6 +1,10 @@
+TODO: boilerplate (informações redundantes) deve ser reduzido.
+
 # Requisitos do Ambiente de Desktop
 
 ## Objetivo
+
+> TODO: Incrementar ao objetivo o motivo principal edssa página: O que um sistema operacional deve conseguir fazer?
 
 O ambiente de desktop da máquina virtual deve proporcionar uma experiência de uso geral comparável à de um computador pessoal convencional, especialmente à experiência que um usuário acostumado ao Windows espera encontrar.
 
