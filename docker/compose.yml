@@ -1,0 +1,33 @@
+# WIP: Postgres, MySQL, Oracle 11g, php-apache
+# WIP: apache.conf, volume to install phpmyadmin, php.ini
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: dev_mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      # MYSQL_DATABASE: myapp
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+  postgres:
+    image: postgres:16-alpine
+    container_name: dev_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      # POSTGRES_DB: mydatabase
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+
+  mysql_data:
