@@ -1,5 +1,3 @@
-TODO: boilerplate (informações redundantes) deve ser reduzido.
-
 # Requisitos do Ambiente de Desktop
 
 ## Objetivo
