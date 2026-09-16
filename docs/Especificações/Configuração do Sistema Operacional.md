@@ -1,6 +1,8 @@
 Utilizando as informações disponibilizadas abaixo, escreva a página de documentação denominada "Configuração do Sistema Opreacional". Essa página tem o objetivo de responder ao leitor "Como o ambiente definido cumpre os papeis que um sistema operacional deve cumprir?". Esses papeis foram definidos no documento "Requisitos do Sistema Operacional.md".
 
 # Stub: Informações básicas do sistema operacional
+(colocar dados do ADR para ca)
+
 
 # Stub: Configurações suplementares para o ambiente desktop Cinnamon
 
@@ -92,3 +94,61 @@ A persistência do cache pode permitir que arquivos `.deb` previamente baixados 
 Atualizações do sistema operacional e alterações no conjunto de pacotes instalados continuam sendo consideradas alterações do disco imutável. Quando uma nova versão do ambiente precisar ser distribuída, o procedimento esperado é atualizar a imagem do sistema e gerar uma nova versão do disco imutável.
 
 O uso de caches persistentes deve permanecer limitado a dados cuja persistência ofereça benefício claro, evitando tornar o estado do sistema parcialmente persistente de maneira desnecessária.
+
+# Stub: Serviços de inicialização automática
+(gerado com auxílio de Inteligência Artifical. Sujeito á inúmeras alterações)
+
+O sistema terá rotinas a serem executadas durante a inicialização do sistema. Essas rotinas (scripts) serão divididos em serviços `systemd` independentes. Os serviços documentados até agora são:
+
+## Sincronização Remota
+
+Serviço responsável por:
+
+1. Aguardar a inicialização da conectividade de rede pelo NetworkManager.
+2. Verificar se há acesso efetivo à Internet; caso contrário, encerrar a execução sem falhar o sistema.
+3. Sincronizar o repositório de configuração com a branch atualmente configurada (`git pull --rebase` ou equivalente).
+
+A presença do disco persistente **não deve ser tratada como requisito para inicialização**. A VM deve continuar funcional mesmo sem o segundo `.vdi` ou mesmo caso o disco do sistema não esteja em estado imutável.
+
+## Verificação de Integridade do Nix
+
+Serviço independente responsável por verificar a integridade do `/nix/store` persistente.
+
+Deve ser executado durante a inicialização, antes que o ambiente seja considerado pronto para uso, de forma que uma corrupção ou alteração não autorizada do Nix Store seja detectada antes de seu conteúdo ser utilizado.
+
+Adicionar: If the persistent Nix Store has not been verified within the configured integrity-check interval, schedule a full integrity check in the background. Otherwise, skip the scan. (utilizar arquivo com timestamp em um ponto do disco persistente para verificar se um scan deve ser realizado ou não. Dessa forma sabemos quando um scan é redundante ou relevante)
+
+A estratégia de reparo de store corrompido será definida posteriormente.
+
+## Aplicação de Patches
+
+Serviço responsável por executar `patches.sh`.
+
+Deve depender da conclusão bem-sucedida do serviço de **Sincronização Remota**, garantindo que os patches sejam executados sobre a versão mais recente da configuração.
+
+As dependências e a ordem de execução serão declaradas diretamente nas unidades `systemd`, evitando a necessidade de controlar manualmente a ordem através de um script de inicialização monolítico.
+
+## Redefinição de Credenciais
+
+A máquina virtual deve remover, durante a inicialização, credenciais e identificadores pessoais que possam ter sido deixados pelo usuário anterior.
+
+O serviço deve limpar, no mínimo:
+
+* Credenciais armazenadas pelo Git Credential Manager ou por outros mecanismos de credenciais do Git.
+* Configurações globais de identidade do Git (`user.name`, `user.email` e equivalentes).
+* Chaves privadas e demais credenciais SSH pertencentes ao usuário.
+* Chaves e credenciais GPG pertencentes ao usuário.
+* Configurações de autenticação relacionadas a essas ferramentas que possam permitir a reutilização de uma sessão anterior.
+
+A limpeza deve ocorrer antes que o ambiente do usuário seja disponibilizado.
+
+Credenciais e configurações pertencentes à infraestrutura da própria máquina virtual, quando existentes, não fazem parte dessa limpeza.
+
+O serviço deve ser idempotente: executá-lo quando não houver credenciais armazenadas deve ser considerado uma operação normal e não deve impedir a inicialização da máquina.
+
+## Princípio
+
+Os serviços devem ser independentes e possuir apenas as dependências necessárias entre si. A inicialização da VM não deve depender da disponibilidade do armazenamento persistente ou da Internet quando essas dependências não forem necessárias para o funcionamento básico do sistema.
+
+Ideia: em algum lugar citar que Firefox não armazena histórico
+Ideia: adicionar serviço de redefinir credenciais armazenadas
