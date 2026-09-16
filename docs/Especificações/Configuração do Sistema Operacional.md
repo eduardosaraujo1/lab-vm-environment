@@ -116,7 +116,7 @@ Serviço independente responsável por verificar a integridade do `/nix/store` p
 
 Deve ser executado durante a inicialização, antes que o ambiente seja considerado pronto para uso, de forma que uma corrupção ou alteração não autorizada do Nix Store seja detectada antes de seu conteúdo ser utilizado.
 
-Adicionar: If the persistent Nix Store has not been verified within the configured integrity-check interval, schedule a full integrity check in the background. Otherwise, skip the scan. (utilizar arquivo com timestamp em um ponto do disco persistente para verificar se um scan deve ser realizado ou não. Dessa forma sabemos quando um scan é redundante ou relevante)
+Adicionar: Essa verificação de integridade não deve ocorrer a todo startup. Para isso, um arquivo localizado na nix store (ou solução do próprio Nix se houver) será utilizado para controlar quando a ultima verificação foi realizada. Apenas após um período arbitrário de tempo outra verificação de integridade deve ser realizada de modo não disruptivo (o sistema segue funcionando, apesar do uso de CPU aumentado para a verificação de checksums)
 
 A estratégia de reparo de store corrompido será definida posteriormente.
 
