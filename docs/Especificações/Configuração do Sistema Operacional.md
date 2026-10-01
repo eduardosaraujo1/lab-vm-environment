@@ -1,154 +1,226 @@
-Utilizando as informações disponibilizadas abaixo, escreva a página de documentação denominada "Configuração do Sistema Opreacional". Essa página tem o objetivo de responder ao leitor "Como o ambiente definido cumpre os papeis que um sistema operacional deve cumprir?". Esses papeis foram definidos no documento "Requisitos do Sistema Operacional.md".
+# Configuração do Sistema Operacional
+
+> **Status da página:** 🚧 Em progresso. Partes marcadas como _stub_ ainda estão em processo de descobrimento (spike) e serão preenchidas conforme as decisões forem tomadas.
+
+## Objetivo
+
+Esta página responde à pergunta: **"Como o ambiente definido cumpre os papéis que um sistema operacional deve cumprir?"**
 
-# Stub: Informações básicas do sistema operacional
-(colocar dados do ADR para ca)
+Os papéis esperados estão definidos em [Requisitos do Ambiente de Desktop](requisitos-sistemas-operacionais.md). O princípio que os orienta é: se uma instalação convencional do Windows fornece uma capacidade básica sem exigir a instalação de um programa adicional, a máquina virtual deve fornecer uma capacidade equivalente, sempre que tecnicamente viável.
 
+Esta página documenta **o que foi decidido**. As alternativas descartadas e seus motivos estão registrados no [ADR 1 - Escolha do Sistema Operacional](ADR1-sistema-operacional.md).
 
-# Stub: Configurações suplementares para o ambiente desktop Cinnamon
+---
 
-O pacote para instalar o ambiente desktop Cinnamon na distribuição Debian, chamado [cinnamon-desktop-environment](https://packages.debian.org/sid/cinnamon-desktop-environment), possui diversas recomendações para .
+## Informações básicas do sistema operacional
 
-Como as recomendações escolhidas ainda não foram decididas (spike/discovering), simplesmente aplique um _stub_, ou seja, uma tabela que pode ser preenchida com o formato `| Dependência | Pacote resolutivo |`
+A stack definida é:
+
+| Camada                                     | Escolha                                                                                                                                            |
+| ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Sistema Operacional                        | [Debian 13](https://www.debian.org/News/2026/20260711)                                                                                             |
+| Display Manager                            | [LightDM](https://wiki.archlinux.org/title/LightDM)                                                                                                |
+| Display Server                             | X11 (nas duas sessões gráficas)                                                                                                                    |
+| Ambiente desktop (sessão padrão)           | [Cinnamon](https://wiki.archlinux.org/title/Cinnamon)                                                                                              |
+| Tiling Window Manager (sessão alternativa) | [i3](https://wiki.archlinux.org/title/I3), com [Rofi](https://wiki.archlinux.org/title/Rofi) e [Polybar](https://wiki.archlinux.org/title/Polybar) |
 
-Por fim, alterações fora do padrão serão também serão inclusas aqui (ex: uso de um tema diferente, mudança de um atalho de teclado e afins). Assim como acima, por estarmos em processo de descobrimento esse trecho não deve concluida ainda, mas sim apenas colocado como "em progresso"
+O que cada decisão significa na prática:
 
-# Stub: Configurações suplementares para o ambiente i3
+- **Debian 13** fornece a base estável, com ampla compatibilidade com softwares Linux, baixa frequência de atualizações disruptivas e instalação apenas dos componentes necessários, mantendo o consumo de armazenamento sob controle.
+- **Cinnamon** é o ambiente principal por oferecer uma experiência próxima à do Windows, reduzindo a curva de adaptação. Nos testes, consumiu menos armazenamento que o KDE Plasma.
+- **LightDM** permite manter o Cinnamon como sessão padrão e oferecer o i3 como alternativa, sem instalações ou configurações separadas para cada usuário.
+- **i3 + Rofi + Polybar** formam uma introdução simples a Tiling Window Managers para alunos interessados, sem substituir a experiência tradicional do Cinnamon.
+- **X11** é adotado como base das sessões gráficas. Usar o mesmo display server nas duas sessões reduz configurações específicas e problemas na troca de ambiente. O suporte a Wayland poderá ser reavaliado em versões futuras.
 
-Por ser um Tiling Window Manager, a quantidade de configurações suplementares será extensa. Além de correções para funcionamento básico (polkit, definir variável DISPLAY no `systemd --user` e `dbus`). Essa parte da documentação ainda está em processo de descobrimenot
+---
 
-# Stub: Intregração com ambiente virtualizado
+## Cobertura dos requisitos
 
-A instalação dos componentes \[Guest Util Additions\] pelo gerenciador de pacotes, em vez da instalação manual a partir da imagem fornecida pelo VirtualBox, é preferível para manter a instalação integrada ao sistema operacional convidado e facilitar sua manutenção.
+A tabela resume como cada grupo de requisitos será atendido. A coluna **Origem** indica de onde vem a capacidade. Os detalhes de pacotes estão nas seções seguintes.
 
-No entanto, o sistema não depende de recursos exclusivos oferecidos pelo Guest Additions para sua execução básica. Caso seja executada em outro hipervisor, como VMware ou QEMU/KVM, os componentes específicos do VirtualBox permanecem instalados sem necessariamente interferir na execução do sistema, mas os recursos de integração fornecidos por eles não estarão disponíveis.
+| #     | Requisito                               | Origem prevista                      | Status       |
+| ----- | --------------------------------------- | ------------------------------------ | ------------ |
+| 1     | Área de trabalho                        | Cinnamon                             | 🔎 A validar |
+| 2     | Gerenciamento de arquivos               | Cinnamon                             | 🔎 A validar |
+| 3     | Arquivos compactados                    | Pacote suplementar                   | 🚧 Stub      |
+| 4     | Imagens (visualização e edição simples) | Pacote suplementar                   | 🚧 Stub      |
+| 5     | Capturas de tela                        | Pacote suplementar                   | 🚧 Stub      |
+| 6     | Documentos e PDF                        | Pacote suplementar                   | 🚧 Stub      |
+| 7     | Editor de texto                         | Pacote suplementar                   | 🚧 Stub      |
+| 8     | Calculadora e utilitários               | Pacote suplementar                   | 🚧 Stub      |
+| 9, 10 | Áudio e vídeo; áudio e microfone        | Pacote suplementar                   | 🚧 Stub      |
+| 11    | Rede                                    | NetworkManager + ferramenta gráfica  | 🚧 Stub      |
+| 12    | Dispositivos externos                   | Cinnamon + Guest Additions           | 🚧 Stub      |
+| 13    | Monitores e vídeo                       | Cinnamon + Guest Additions           | 🚧 Stub      |
+| 14    | Teclado, mouse e entrada                | Cinnamon                             | 🔎 A validar |
+| 15    | Área de transferência                   | Guest Additions                      | 🚧 Stub      |
+| 16    | Associações de arquivos                 | Cinnamon                             | 🔎 A validar |
+| 17    | Gerenciamento de aplicativos            | Cinnamon + APT/Nix                   | 🔎 A validar |
+| 18    | Gerenciamento de energia                | Cinnamon                             | 🔎 A validar |
+| 19    | Relógio, calendário e notificações      | Cinnamon                             | 🔎 A validar |
+| 20    | Pesquisa                                | Cinnamon (menu) / Rofi (i3)          | 🔎 A validar |
+| 21    | Configurações do sistema                | Cinnamon                             | 🔎 A validar |
+| 22    | Acessibilidade                          | Cinnamon                             | 🔎 A validar |
+| 23    | Segurança básica                        | Cinnamon + serviços de inicialização | 🚧 Stub      |
+| 24    | Fontes                                  | Pacote suplementar                   | 🚧 Stub      |
 
-## Subsection: Pasta compartilhada
+**Legenda:** 🔎 _A validar_: espera-se que o Cinnamon atenda, mas isso ainda não foi verificado item a item. 🚧 _Stub_: depende de decisão ainda não tomada.
 
-A VM utiliza uma pasta compartilhada para facilitar a transferência de arquivos entre o sistema convidado e o computador hospedeiro.
+---
 
-Uma pasta denominada **`Compartilhado`** será disponibilizada na área de trabalho do sistema operacional. Essa pasta corresponde a uma pasta localizada no computador hospedeiro e é montada dentro do sistema convidado através do mecanismo de **Shared Folders** do VirtualBox.
+## Configurações suplementares para o ambiente desktop Cinnamon
 
-Embora possa ser montada em qualquer lugar, durante os testes a pasta do hospedeiro foi configurada em`%LOCALAPPDATA%\LabVM\Compartilhado`
+> 🚧 **Em progresso (spike/discovering).** Esta seção ainda não está concluída.
 
-O caminho no hospedeiro não é considerado um requisito fixo da VM e pode ser alterado conforme a organização utilizada no computador onde a VM for executada.
+O pacote [cinnamon-desktop-environment](https://packages.debian.org/sid/cinnamon-desktop-environment) do Debian possui diversas recomendações de pacotes. Quais delas serão mantidas ainda não foi decidido. A tabela abaixo é um _stub_ a ser preenchido no formato `Necessidade | Pacote resolutivo`.
 
-O usuário da VM possui permissões de leitura e escrita na pasta compartilhada. Para isso, seu usuário é associado ao grupo `vboxsf`, utilizado pelo VirtualBox para controlar o acesso às pastas compartilhadas.
+| Necessidade                                                  | Pacote resolutivo |
+| ------------------------------------------------------------ | ----------------- |
+| Compactação e extração de arquivos (`.zip`, `.tar.*`, `.7z`) | _A definir_       |
+| Visualizador de imagens                                      | _A definir_       |
+| Edição simples de imagens (equivalente ao Paint)             | _A definir_       |
+| Captura de tela                                              | _A definir_       |
+| Visualizador de PDF                                          | _A definir_       |
+| Editor de texto gráfico                                      | _A definir_       |
+| Calculadora                                                  | _A definir_       |
+| Reprodutor de áudio e vídeo                                  | _A definir_       |
+| Controle de volume e dispositivos de áudio                   | _A definir_       |
+| Interface gráfica de rede (integrada ao NetworkManager)      | _A definir_       |
+| Impressão de documentos                                      | _A definir_       |
+| Fontes Microsoft TrueType                                    | _A definir_       |
+| Fontes Noto (emojis e Unicode)                               | _A definir_       |
+| Fontes Liberation                                            | _A definir_       |
+| Nerd Fonts                                                   | _A definir_       |
 
-A pasta `Compartilhado` deve ser utilizada para arquivos que precisem ser transferidos entre o hospedeiro e a VM, especialmente porque o disco principal da VM é imutável.
+### Alterações fora do padrão
 
-Quando conveniente, atalhos para a pasta podem ser disponibilizados na **Área de Trabalho** e em **Documentos**, facilitando seu acesso pelo usuário.
+Alterações que fogem do padrão do Cinnamon serão registradas aqui (por exemplo, tema diferente ou mudança de atalho de teclado).
 
-# Stub: informações do disco imutável
+| Alteração   | Motivo      | Status          |
+| ----------- | ----------- | --------------- |
+| _A definir_ | _A definir_ | 🚧 Em progresso |
 
-Esse trecho originalmente havia sido colocado na documentação de "Parâmetros de virtualização". Além de ser extremamente redundante com a introdução já dada previamente, o trecho inclui algumas. O objetivo é reduzir esse trecho de modo que transmita a mensagem de modo conciso e coeso:
+---
 
-- Existem dois discos: um considerado "imutável" e outro considerado "mutável".
-- O sistema operacional alocará pastas específicas (Downloads, Desktop, Documents, /var/cache/apt/archives) através do FSTAB
+## Configurações suplementares para o ambiente i3
 
-### Disco do Sistema Imutável
+> 🚧 **Em progresso (spike/discovering).** Esta seção ainda não está concluída.
 
-O disco principal da máquina virtual é distribuído no formato **VDI**, próprio do VirtualBox, e configurado como **imutável**.
+Por ser um Tiling Window Manager, o i3 exige uma quantidade extensa de configurações suplementares para fornecer o que o Cinnamon já oferece. O que já se sabe que será necessário:
 
-O objetivo dessa configuração é garantir que a VM distribuída mantenha seu estado original. Alterações realizadas durante a utilização da máquina virtual não devem modificar permanentemente a imagem distribuída.
+| Necessidade                                                                              | Solução     | Status                              |
+| ---------------------------------------------------------------------------------------- | ----------- | ----------------------------------- |
+| Agente de autenticação (polkit)                                                          | _A definir_ | 🚧 Stub                             |
+| Variável `DISPLAY` disponível no `systemd --user`                                        | _A definir_ | 🚧 Stub                             |
+| Variável `DISPLAY` disponível no `dbus`                                                  | _A definir_ | 🚧 Stub                             |
+| Lançador de aplicativos                                                                  | Rofi        | ✅ Decidido (configuração pendente) |
+| Barra de status                                                                          | Polybar     | ✅ Decidido (configuração pendente) |
+| Capacidades do desktop ausentes no i3 (rede, áudio, notificações, bloqueio de tela etc.) | _A definir_ | 🚧 Stub                             |
 
-Dessa forma, alterações no sistema, instalações adicionais, modificações de configurações e arquivos gravados nas partes do sistema que não sejam destinadas à persistência são descartados quando a VM é restaurada ao estado original, conforme o mecanismo de discos imutáveis do VirtualBox.
+---
 
-Essa característica é utilizada deliberadamente para tornar o ambiente de execução **descartável**. Modificações acidentais ou indesejadas realizadas pelo usuário, inclusive alterações em arquivos de configuração e configurações de aplicativos, não devem permanecer entre ciclos de utilização da VM.
+## Integração com ambiente virtualizado
 
-A definição de quais diretórios do sistema convidado pertencem ao disco imutável e quais são associados ao disco persistente é especificada no documento de **Sistema Operacional**.
+Os componentes **Guest Additions** do VirtualBox são instalados pelo gerenciador de pacotes, e não manualmente a partir da imagem fornecida pelo VirtualBox. Isso mantém a instalação integrada ao sistema operacional convidado e facilita sua manutenção.
 
-### Disco de Dados Persistente
+O sistema **não depende** dos recursos exclusivos do Guest Additions para sua execução básica. Em outro hipervisor (VMware, QEMU/KVM), os componentes do VirtualBox permanecem instalados sem necessariamente interferir, mas os recursos de integração que eles fornecem não estarão disponíveis.
 
-O segundo disco virtual é utilizado para armazenar dados que devem sobreviver à restauração do disco do sistema.
+| Recurso de integração                                        | Status               |
+| ------------------------------------------------------------ | -------------------- |
+| Pasta compartilhada                                          | ✅ Definido (abaixo) |
+| Integração da área de transferência (requisito 15)           | 🚧 Stub              |
+| Resolução inicial adequada a uma janela de VM (requisito 13) | 🚧 Stub              |
+| Redimensionamento dinâmico da tela                           | 🚧 Stub              |
 
-Esse disco permanece **mutável** e não é configurado como um disco imutável do VirtualBox. Diretórios selecionados do sistema convidado são montados sobre esse disco, de modo que os arquivos armazenados nesses diretórios não façam parte do estado descartável do sistema.
+### Pasta compartilhada
 
-A persistência é, portanto, **seletiva**. O diretório pessoal do usuário não é considerado persistente por completo. Arquivos de configuração, caches e demais dados que não tenham sido explicitamente destinados à persistência continuam armazenados no disco do sistema e são restaurados ao estado original.
+A VM usa uma pasta compartilhada para transferir arquivos entre o sistema convidado e o computador hospedeiro.
 
-A relação dos diretórios montados no disco persistente será definida no documento de **Sistema Operacional**.
+- Uma pasta chamada **`Compartilhado`** é disponibilizada na área de trabalho. Ela corresponde a uma pasta do hospedeiro, montada no convidado pelo mecanismo de **Shared Folders** do VirtualBox.
+- O usuário da VM tem permissão de leitura e escrita. Para isso, ele pertence ao grupo `vboxsf`, que o VirtualBox usa para controlar o acesso.
+- O caminho no hospedeiro **não é um requisito fixo** e pode seguir a organização de cada computador. Nos testes, foi usado `%LOCALAPPDATA%\LabVM\Compartilhado`.
+- Use esta pasta para arquivos que precisem passar entre hospedeiro e VM, especialmente porque o disco principal da VM é imutável.
+- Quando conveniente, atalhos para a pasta podem ser colocados na **Área de Trabalho** e em **Documentos**.
 
-Essa abordagem permite, por exemplo, que alterações em arquivos como configurações de shell, configurações de editores e configurações de aplicativos sejam descartadas após a restauração da VM, enquanto documentos e outros arquivos de trabalho selecionados permanecem disponíveis.
+---
 
-### Ausência do Disco Persistente
+## Disco imutável e disco persistente
 
-A disponibilidade do disco de dados não deve ser necessária para a inicialização básica do sistema operacional.
+A VM usa **dois discos virtuais**:
 
-Caso o disco persistente não esteja disponível, os pontos de montagem destinados a ele não serão montados. Os diretórios correspondentes continuarão existindo no sistema de arquivos do disco imutável e poderão ser utilizados normalmente durante aquela sessão.
+| Disco            | Tipo           | Função                                                                           |
+| ---------------- | -------------- | -------------------------------------------------------------------------------- |
+| Disco do sistema | Imutável (VDI) | Sistema operacional e configurações. Volta ao estado original ao ser restaurado. |
+| Disco de dados   | Mutável        | Dados que devem sobreviver à restauração.                                        |
 
-Nesse cenário, os arquivos gravados nesses diretórios serão temporários e serão perdidos quando o sistema imutável for restaurado.
+O objetivo é tornar o ambiente **descartável**: alterações acidentais ou indesejadas no sistema, nas configurações e nos aplicativos não permanecem entre ciclos de uso.
 
-Essa degradação é intencional: a ausência do disco de dados não deve impedir a execução da VM. Caso o disco seja posteriormente disponibilizado novamente, seus diretórios serão montados durante a inicialização seguinte e os dados persistentes voltarão a estar disponíveis.
+### Persistência seletiva
 
-Não é necessário implementar um mecanismo adicional para impedir a utilização dos diretórios quando o disco persistente estiver indisponível.
+Apenas pastas específicas são montadas no disco de dados, por meio do `/etc/fstab`:
 
-### Considerações sobre o Cache de Pacotes
+- `Downloads`
+- `Desktop`
+- `Documents`
+- `/var/cache/apt/archives`
 
-O disco persistente pode ser utilizado para armazenar caches de arquivos baixados, quando isso trouxer benefício ao funcionamento da VM.
+O diretório pessoal **não** é persistente por completo. Configurações de shell, de editores e de aplicativos, além de caches não listados acima, ficam no disco imutável e são descartados na restauração.
 
-O cache de pacotes do APT, localizado em `/var/cache/apt/archives`, é independente dos metadados utilizados pelo APT para determinar quais pacotes estão disponíveis. Com isso, a persistência do cache de arquivos `.deb` não implica na persistência de um `apt update`.
+> 🚧 A lista acima reflete o que está definido até agora e pode ser ajustada.
 
-Os metadados e o estado de gerenciamento de pacotes permanecem no disco do sistema e, portanto, são restaurados juntamente com ele.
+### Ausência do disco persistente
 
-A persistência do cache pode permitir que arquivos `.deb` previamente baixados sejam reutilizados em sessões posteriores, reduzindo downloads desnecessários. Entretanto, essa persistência não deve ser interpretada como uma forma de persistir atualizações do sistema.
+O disco de dados **não é necessário** para a inicialização. Se ele estiver ausente, os pontos de montagem não são montados e os diretórios continuam existindo no disco imutável. Eles podem ser usados normalmente na sessão, mas o que for gravado ali será perdido na restauração. Se o disco voltar a estar disponível, será montado na inicialização seguinte e os dados persistentes voltam a aparecer.
 
-Atualizações do sistema operacional e alterações no conjunto de pacotes instalados continuam sendo consideradas alterações do disco imutável. Quando uma nova versão do ambiente precisar ser distribuída, o procedimento esperado é atualizar a imagem do sistema e gerar uma nova versão do disco imutável.
+Essa degradação é intencional. Nenhum mecanismo adicional é necessário para bloquear o uso desses diretórios quando o disco está ausente.
 
-O uso de caches persistentes deve permanecer limitado a dados cuja persistência ofereça benefício claro, evitando tornar o estado do sistema parcialmente persistente de maneira desnecessária.
+### Cache de pacotes
 
-# Stub: Serviços de inicialização automática
-(gerado com auxílio de Inteligência Artifical. Sujeito á inúmeras alterações)
+O cache do APT em `/var/cache/apt/archives` fica no disco persistente para reaproveitar arquivos `.deb` já baixados e reduzir downloads. Isso **não** persiste um `apt update` nem atualizações do sistema: metadados e estado dos pacotes ficam no disco imutável. Atualizações e mudanças no conjunto de pacotes continuam sendo alterações do disco imutável, e novas versões do ambiente são distribuídas gerando uma nova imagem.
 
-O sistema terá rotinas a serem executadas durante a inicialização do sistema. Essas rotinas (scripts) serão divididos em serviços `systemd` independentes. Os serviços documentados até agora são:
+Caches persistentes devem se limitar a dados cuja persistência traga benefício claro.
 
-## Sincronização Remota
+> 🚧 **A confirmar:** registrar aqui que o Firefox não armazena histórico entre sessões, e como isso é garantido.
 
-Serviço responsável por:
+---
 
-1. Aguardar a inicialização da conectividade de rede pelo NetworkManager.
-2. Verificar se há acesso efetivo à Internet; caso contrário, encerrar a execução sem falhar o sistema.
-3. Sincronizar o repositório de configuração com a branch atualmente configurada (`git pull --rebase` ou equivalente).
+## Serviços de inicialização automática
 
-A presença do disco persistente **não deve ser tratada como requisito para inicialização**. A VM deve continuar funcional mesmo sem o segundo `.vdi` ou mesmo caso o disco do sistema não esteja em estado imutável.
+> 🚧 **Em progresso.** Texto gerado com auxílio de IA e sujeito a muitas alterações.
 
-## Verificação de Integridade do Nix
+As rotinas executadas na inicialização são divididas em **serviços `systemd` independentes**. Dependências e ordem de execução são declaradas nas próprias unidades, sem um script de inicialização monolítico.
 
-Serviço independente responsável por verificar a integridade do `/nix/store` persistente.
+**Princípio:** cada serviço possui apenas as dependências necessárias. A inicialização não deve depender do armazenamento persistente nem da Internet quando isso não for necessário ao funcionamento básico.
 
-Deve ser executado durante a inicialização, antes que o ambiente seja considerado pronto para uso, de forma que uma corrupção ou alteração não autorizada do Nix Store seja detectada antes de seu conteúdo ser utilizado.
+### Sincronização Remota
 
-Adicionar: Essa verificação de integridade não deve ocorrer a todo startup. Para isso, um arquivo localizado na nix store (ou solução do próprio Nix se houver) será utilizado para controlar quando a ultima verificação foi realizada. Apenas após um período arbitrário de tempo outra verificação de integridade deve ser realizada de modo não disruptivo (o sistema segue funcionando, apesar do uso de CPU aumentado para a verificação de checksums)
+1. Aguarda o NetworkManager inicializar a conectividade.
+2. Verifica se há acesso efetivo à Internet. Se não houver, encerra sem falhar o sistema.
+3. Sincroniza o repositório de configuração com a branch configurada (`git pull --rebase` ou equivalente).
 
-A estratégia de reparo de store corrompido será definida posteriormente.
+A VM deve continuar funcional sem o segundo `.vdi` ou mesmo se o disco do sistema não estiver em estado imutável.
 
-## Aplicação de Patches
+### Verificação de Integridade do Nix
 
-Serviço responsável por executar `patches.sh`.
+Serviço independente que verifica a integridade do `/nix/store` persistente, para que corrupção ou alteração não autorizada seja detectada antes do uso do conteúdo.
 
-Deve depender da conclusão bem-sucedida do serviço de **Sincronização Remota**, garantindo que os patches sejam executados sobre a versão mais recente da configuração.
+- **Não roda a cada inicialização.** Um arquivo no Nix Store (ou mecanismo do próprio Nix, se existir) registra quando foi feita a última verificação.
+- Uma nova verificação só ocorre após um período arbitrário, de forma **não disruptiva**: o sistema segue utilizável, apesar do maior uso de CPU para o cálculo de checksums.
+- 🚧 A estratégia de reparo de um store corrompido será definida posteriormente.
+- 🚧 A lista de pastas persistentes acima não inclui `/nix/store`. É preciso definir onde ele reside.
 
-As dependências e a ordem de execução serão declaradas diretamente nas unidades `systemd`, evitando a necessidade de controlar manualmente a ordem através de um script de inicialização monolítico.
+### Aplicação de Patches
 
-## Redefinição de Credenciais
+Executa `patches.sh`. Depende da conclusão bem-sucedida da **Sincronização Remota**, garantindo que os patches rodem sobre a versão mais recente da configuração.
 
-A máquina virtual deve remover, durante a inicialização, credenciais e identificadores pessoais que possam ter sido deixados pelo usuário anterior.
+### Redefinição de Credenciais
 
-O serviço deve limpar, no mínimo:
+Remove, durante a inicialização e antes de o ambiente do usuário ser disponibilizado, credenciais e identificadores pessoais deixados pelo usuário anterior. No mínimo:
 
-* Credenciais armazenadas pelo Git Credential Manager ou por outros mecanismos de credenciais do Git.
-* Configurações globais de identidade do Git (`user.name`, `user.email` e equivalentes).
-* Chaves privadas e demais credenciais SSH pertencentes ao usuário.
-* Chaves e credenciais GPG pertencentes ao usuário.
-* Configurações de autenticação relacionadas a essas ferramentas que possam permitir a reutilização de uma sessão anterior.
+- Credenciais do Git Credential Manager ou de outros mecanismos de credenciais do Git.
+- Identidade global do Git (`user.name`, `user.email` e equivalentes).
+- Chaves privadas e demais credenciais SSH do usuário.
+- Chaves e credenciais GPG do usuário.
+- Configurações de autenticação relacionadas que permitam reaproveitar uma sessão anterior.
 
-A limpeza deve ocorrer antes que o ambiente do usuário seja disponibilizado.
-
-Credenciais e configurações pertencentes à infraestrutura da própria máquina virtual, quando existentes, não fazem parte dessa limpeza.
-
-O serviço deve ser idempotente: executá-lo quando não houver credenciais armazenadas deve ser considerado uma operação normal e não deve impedir a inicialização da máquina.
-
-## Princípio
-
-Os serviços devem ser independentes e possuir apenas as dependências necessárias entre si. A inicialização da VM não deve depender da disponibilidade do armazenamento persistente ou da Internet quando essas dependências não forem necessárias para o funcionamento básico do sistema.
-
-Ideia: em algum lugar citar que Firefox não armazena histórico
-Ideia: adicionar serviço de redefinir credenciais armazenadas
+Credenciais e configurações da infraestrutura da própria VM não fazem parte da limpeza. O serviço é **idempotente**: executá-lo sem credenciais armazenadas é normal e não impede a inicialização.
